@@ -1,4 +1,7 @@
 # frc-2019-jetson
+
+[![Build Status](https://travis-ci.org/ChisholmKyle/frc-2019-jetson.svg?branch=master)](https://travis-ci.org/ChisholmKyle/frc-2019-jetson)
+
 Team Arctos 6315's 2019 Jetson TX1 code. Made with help from [@mincrmatt12](https://github.com/mincrmatt12).
 
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Flag_of_Canada.svg/1280px-Flag_of_Canada.svg.png" alt="CANADA" height="50px"/>&nbsp;&nbsp;&nbsp;<img src="https://avatars0.githubusercontent.com/u/16629663?s=200&v=4" alt="Arctos" height="50px"/>&nbsp;&nbsp;&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Ros_logo.svg/2000px-Ros_logo.svg.png" alt="ROS" height="50px"/>&nbsp;&nbsp;&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/OpenCV_Logo_with_text_svg_version.svg/1200px-OpenCV_Logo_with_text_svg_version.svg.png" alt="OpenCV" height="50px"/>
@@ -16,16 +19,22 @@ This code runs on an NVIDIA Jetson TX1 and communicates with the roboRIO via Net
 It is capable of detecting the relative position, direction and orientation of the target to within 2% error and has an MJPEG camera stream on port 1180.
 The code is written in C++ with ROS.
 
+### Prerequisites
+
+ROS kinetic and the package 'ros-kinetic-web-video-server'
+
 ### To Build
-* `catkin init`
-* `wstool update`
+
+* `wstool update -t src`
+* `source /opt/ros/kinetic/setup.bash && catkin_make`
 
 ### To Run
+
 * `source devel/setup.bash`
 * `roslaunch bot bot.launch`
 
 ### NetworkTables
-The program communicates with the roboRIO via the table `roborio-jetson`. 
+The program communicates with the roboRIO via the table `roborio-jetson`.
 
 | Table Entry | Modified By | Type | Purpose |
 | ----------- | ----------- | ---- | ------- |
