@@ -1,0 +1,10 @@
+services:
+  - docker
+
+before_install:
+  - docker pull ros:kinetic-perception-xenial
+  - docker build -t arctos:ros-build .
+
+script:
+  - wstool update -t src
+  - . /opt/ros/kinetic/setup.bash && catkin_make
