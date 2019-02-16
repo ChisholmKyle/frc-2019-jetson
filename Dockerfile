@@ -36,7 +36,7 @@ SHELL ["/bin/bash", "-c"]
 # build package
 
 RUN wstool update -t src
-RUN catkin_make
+RUN source /opt/ros/kinetic/setup.bash && catkin_make
 RUN tar -cvzf frc-2019-jetson-build.tar.gz .
 
 # get build
